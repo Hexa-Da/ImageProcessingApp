@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.Insets?>
+
+<!-- 
+    Interface principale de l'application de traitement d'image
+    Architecture MVC : ce fichier FXML représente la View
+    Le contrôleur MainController gère les interactions utilisateur
+-->
+
+<BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imageprocessingapp.controller.MainController">
+    
+    <!-- ZONE SUPÉRIEURE : Barre de menu -->
+    <top>
+        <MenuBar>
+            <!-- Menu Fichier avec options Open/Save -->
+            <Menu text="File">
+                <MenuItem text="Open" onAction="#openImage"/>  <!-- Ouvre une image depuis le disque -->
+                <MenuItem text="Save" onAction="#saveImage"/>  <!-- Sauvegarde l'image modifiée -->
+            </Menu>
+            <!-- Menu Édition (à compléter avec Seam Carving) -->
+            <Menu text="Edit"/>
+            <!-- Menu Filtres (à compléter avec Mosaic Effect) -->
+            <Menu text="Filters"/>
+        </MenuBar>
+    </top>
+    
+    <!-- ZONE GAUCHE : Barre d'outils -->
+    <left>
+        <!-- VBox pour organiser les outils verticalement -->
+        <!-- il faudra ajouter les outils de dessin (PaintTool, PickerTool) -->
+        <VBox fx:id="toolbar" spacing="10">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+        </VBox>
+    </left>
+    
+    <!-- ZONE CENTRALE : Zone d'affichage de l'image -->
+    <center>
+        <!-- StackPane permet d'empiler plusieurs composants -->
+        <!-- il faudra ajouter le ColorDisplay pour afficher la couleur sélectionnée -->
+        <StackPane fx:id="imageContainer">
+            <!-- ImageView pour afficher l'image chargée -->
+            <!-- Dimensions fixes 800x600 avec ratio préservé -->
+            <ImageView fx:id="imageView" fitWidth="800" fitHeight="600" preserveRatio="true"/>
+        </StackPane>
+    </center>
+    
+</BorderPane>
